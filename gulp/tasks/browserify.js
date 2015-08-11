@@ -5,6 +5,7 @@ var Brify  = require('browserify');
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var babelify = require('babelify');
+var livereload = require('gulp-livereload');
 
 gulp.task('browserify:bundle', function() {
   var common = new Brify();
@@ -14,7 +15,8 @@ gulp.task('browserify:bundle', function() {
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(buffer())
-    .pipe(gulp.dest('./dist/js/'));
+    .pipe(gulp.dest('./dist/js/'))
+    .pipe(livereload());
 });
 
 gulp.task('browserify:common', function() {
@@ -24,5 +26,6 @@ gulp.task('browserify:common', function() {
     .bundle()
     .pipe(source('common.js'))
     .pipe(buffer())
-    .pipe(gulp.dest('./dist/js/'));
+    .pipe(gulp.dest('./dist/js/'))
+    .pipe(livereload());
 });
