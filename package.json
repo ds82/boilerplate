@@ -17,6 +17,9 @@
     "tiny-di": "0.3.0"
   },
   "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-runtime": "^5.8.20",
+    "babelify": "^6.1.3",
     "gulp": "^3.9.0",
     "gulp-less": "^3.0.3",
     "jasmine": "^2.3.2",
