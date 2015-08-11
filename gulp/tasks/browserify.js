@@ -4,11 +4,13 @@ var gulp   = require('gulp');
 var Brify  = require('browserify');
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
+var babelify = require('babelify');
 
 gulp.task('browserify:bundle', function() {
   var common = new Brify();
   return common
     .add('./app/js/bundle')
+    .transform(babelify.configure({optional: 'runtime'}))
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(buffer())
