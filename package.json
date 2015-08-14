@@ -25,6 +25,7 @@
     "gulp-less": "^3.0.3",
     "gulp-livereload": "^3.8.0",
     "jasmine": "^2.3.2",
+    "supervisor": "0.7.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
