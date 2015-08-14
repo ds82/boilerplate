@@ -12,6 +12,7 @@ files
 
 gulp.task('build', [
   'dist',
+  'lint',
   'browserify',
   'less'
 ]);
