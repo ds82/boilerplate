@@ -5,7 +5,9 @@ var Brify  = require('browserify');
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var babelify = require('babelify');
-var livereload = require('gulp-livereload');
+var livereload = require('./livereload');
+
+gulp.task('browserify', ['browserify:common', 'browserify:bundle']);
 
 gulp.task('browserify:bundle', function() {
   var common = new Brify();
