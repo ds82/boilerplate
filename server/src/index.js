@@ -14,7 +14,8 @@ try {
   console.log('config not found, using fallback config');
   config = require('config/config.dist.json');
 }
-config.appRoot = path.dirname(__dirname);
+var appDir = path.resolve(__dirname, '../../client/app');
+config.appRoot = path.dirname(appDir);
 config.serverRoot = __dirname;
 
 module.exports = Daemon;
