@@ -1,6 +1,6 @@
 'use strict';
 
-require('./modules');
+require('../modules');
 
 angular.module('app', ['ui.router', 'bp.modules'])
   .constant('APP_NAME', 'boilerplate')

@@ -10,6 +10,6 @@ function HomeCfg($stateProvider) {
   $stateProvider
     .state('home', {
       url: '/home',
-      templateUrl: 'js/modules/bp.home/partials/home.html'
+      templateUrl: 'modules/bp.home/partials/home.html'
     });
 }

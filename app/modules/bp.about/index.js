@@ -10,6 +10,6 @@ function AboutCfg($stateProvider) {
   $stateProvider
     .state('about', {
       url: '/about',
-      templateUrl: 'js/modules/bp.about/partials/about.html'
+      templateUrl: 'modules/bp.about/partials/about.html'
     });
 }

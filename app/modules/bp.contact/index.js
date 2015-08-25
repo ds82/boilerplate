@@ -10,6 +10,6 @@ function ContactCfg($stateProvider) {
   $stateProvider
     .state('contact', {
       url: '/contact',
-      templateUrl: 'js/modules/bp.contact/partials/contact.html'
+      templateUrl: 'modules/bp.contact/partials/contact.html'
     });
 }
