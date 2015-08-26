@@ -28,6 +28,7 @@
     "gulp-eslint": "1.0.0",
     "gulp-less": "^3.0.3",
     "gulp-livereload": "^3.8.0",
+    "gulp-sequence": "0.4.1",
     "jasmine": "^2.3.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
