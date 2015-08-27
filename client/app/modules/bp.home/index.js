@@ -1,15 +1,14 @@
 'use strict';
 
-// require('./controller/controller');
-// require('./directives/directives');
-
-angular.module('bp.home', ['ui.router'])
+angular.module('bp.home', ['ng.config', 'ui.router'])
   .config(HomeCfg);
 
-function HomeCfg($stateProvider) {
+HomeCfg.$inject = ['$configProvider', '$stateProvider'];
+function HomeCfg($configProvider, $stateProvider) {
+  const MODULE_URL = $configProvider.get('MODULE_URL');
   $stateProvider
     .state('home', {
       url: '/home',
-      templateUrl: 'modules/bp.home/partials/home.html'
+      templateUrl: MODULE_URL + 'bp.home/partials/home.html'
     });
 }

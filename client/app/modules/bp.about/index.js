@@ -1,15 +1,14 @@
 'use strict';
 
-// require('./controller/controller');
-// require('./directives/directives');
-
-angular.module('bp.about', ['ui.router'])
+angular.module('bp.about', ['ng.config', 'ui.router'])
   .config(AboutCfg);
 
-function AboutCfg($stateProvider) {
+AboutCfg.$inject = ['$configProvider', '$stateProvider'];
+function AboutCfg($configProvider, $stateProvider) {
+  const MODULE_URL = $configProvider.get('MODULE_URL');
   $stateProvider
     .state('about', {
       url: '/about',
-      templateUrl: 'modules/bp.about/partials/about.html'
+      templateUrl: MODULE_URL + 'bp.about/partials/about.html'
     });
 }

@@ -1,15 +1,14 @@
 'use strict';
 
-// require('./controller/controller');
-// require('./directives/directives');
-
-angular.module('bp.contact', ['ui.router'])
+angular.module('bp.contact', ['ng.config', 'ui.router'])
   .config(ContactCfg);
 
-function ContactCfg($stateProvider) {
+ContactCfg.$inject = ['$configProvider', '$stateProvider'];
+function ContactCfg($configProvider, $stateProvider) {
+  const MODULE_URL = $configProvider.get('MODULE_URL');
   $stateProvider
     .state('contact', {
       url: '/contact',
-      templateUrl: 'modules/bp.contact/partials/contact.html'
+      templateUrl: MODULE_URL + 'bp.contact/partials/contact.html'
     });
 }
