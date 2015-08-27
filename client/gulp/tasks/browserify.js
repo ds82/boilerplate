@@ -2,7 +2,6 @@
 
 var pck        = require('../../package.json');
 var gulp       = require('gulp');
-var seq        = require('gulp-sequence');
 var fs         = require('fs');
 var path       = require('path');
 var Brify      = require('browserify');
@@ -16,10 +15,7 @@ const COMMON_DEPS = Object.keys(pck.dependencies);
 
 const REQUIRE_REGEXP = /\/\/ REQUIRE_START[\s\S]*\/\/ REQUIRE_END\n?/;
 
-gulp.task('browserify', seq(
-  ['browserify:bundle', 'browserify:before:common'],
-  'browserify:common'
-));
+gulp.task('browserify', ['browserify:bundle', 'browserify:common']);
 
 gulp.task('browserify:bundle', function() {
   var common = new Brify();
@@ -49,10 +45,8 @@ ${makeRequireCalls(COMMON_DEPS)}// REQUIRE_END
 });
 
 function readFile(file) {
-  console.log('readFile');
   return new Promise(function(resolve, reject) {
     fs.readFile(file, (err, contents) => {
-      console.log(err, contents);
       return (err) ? reject(err) : resolve(contents.toString());
     });
   });
@@ -72,7 +66,7 @@ function makeRequireCalls(deps = []) {
   return code;
 }
 
-gulp.task('browserify:common', function() {
+gulp.task('browserify:common', ['browserify:before:common'], function() {
   var common = new Brify();
   var stream = common
     .add('./app/js/common');

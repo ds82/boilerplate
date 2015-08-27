@@ -1,4 +1,7 @@
 'use strict';
+//
+// Changes in this file are not covered by gulp.watch
+// rebundle manually (this is on purpose)
 
 // ugly bootstrap patch
 window.jQuery = require('jquery');

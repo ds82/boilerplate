@@ -1,6 +1,6 @@
 'use strict';
 
-var gulp = require('gulp');
+var gulp       = require('gulp');
 var livereload = require('./livereload');
 
 gulp.task('watch', ['build', 'lr-server'], function() {
@@ -9,8 +9,11 @@ gulp.task('watch', ['build', 'lr-server'], function() {
     './app/modules/**/*.js',
     '!./app/js/common.js'
   ], ['browserify:bundle']);
-  gulp.watch('./app/js/common.js', ['browserify:common']);
+
+  gulp.watch(['package.json'], ['browserify:common']);
+
   gulp.watch('./app/**/*.html', livereload.reload);
+
   gulp.watch('./app/less/*.less', ['less']);
 });
 
