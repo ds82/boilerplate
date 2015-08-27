@@ -9,4 +9,4 @@ branches:
   except:
     - gh-pages
 
-script: "npm run test-travis"
+script: "cd client && npm run test-travis"
